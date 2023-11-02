@@ -3,6 +3,7 @@ package com.example.mmt;
 import com.google.firebase.Timestamp;
 
 public class Publicacion {
+    private String id;
     private String content;
     private Timestamp creationDate;
     private String genre;
@@ -38,5 +39,11 @@ public class Publicacion {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getId() { return id;}
+    public Publicacion setId(String id) {
+        this.id = id;
+        return this;
     }
 }

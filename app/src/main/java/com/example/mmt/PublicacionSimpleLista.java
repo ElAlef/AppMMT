@@ -65,6 +65,7 @@ public class PublicacionSimpleLista extends AppCompatActivity {
                             Log.d(this.getClass().getSimpleName(), "getPublicacionesFromFirebase foreando");
 
                             Publicacion publicacion = document.toObject(Publicacion.class);
+                            publicacion.setId(document.getId());
                             if (publicacion != null) {
                                 Log.d(this.getClass().getSimpleName(), "getPublicacionesFromFirebase pub not null");
                                 publicacionesList.add(publicacion);

@@ -58,11 +58,18 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
         holder.video_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                if (!TextUtils.isEmpty(videoUrl)) {
+//                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//                    intent.setData(Uri.parse(videoUrl));
+//                    v.getContext().startActivity(intent);
+//                }
                 if (!TextUtils.isEmpty(videoUrl)) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(videoUrl));
+                    Intent intent = new Intent(v.getContext(), ReproductorDeVideo.class);
+                    intent.putExtra("VIDEO_URL", videoUrl); // Pasa la URL del video como un extra en el Intent
                     v.getContext().startActivity(intent);
                 }
+
             }
         });
 
@@ -125,4 +132,5 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
         publicacionesList = newData;
         notifyDataSetChanged();
     }
+
 }

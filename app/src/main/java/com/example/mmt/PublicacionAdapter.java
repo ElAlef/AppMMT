@@ -1,10 +1,14 @@
 package com.example.mmt;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +53,18 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
         holder.genereTextView.setText(publicacion.getGenre());
         holder.locationTextView.setText(publicacion.getLocation());
         holder.contentTextView.setText(publicacion.getContent());
-        holder.creationDateTextView.setText(publicacion.getCreationDate().toString());
+//        holder.creationDateTextView.setText(publicacion.getCreationDate().toString());
+        String videoUrl = publicacion.getVideo();
+        holder.video_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(videoUrl)) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(videoUrl));
+                    v.getContext().startActivity(intent);
+                }
+            }
+        });
 
         final String publicacionId = publicacion.getId();
         holder.btnDelete.setOnClickListener(new View.OnClickListener(){
@@ -65,7 +80,7 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
     private void eliminarPublicacion(String publicacionId) {
         Log.w(this.getClass().getSimpleName(), "Intentando eliminar publicacion: "+String.valueOf(publicacionId) );
 
-        DocumentReference docRef = mFirestore.collection("post").document(publicacionId);
+        DocumentReference docRef = mFirestore.collection("publicacion").document(publicacionId);
                 docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -93,6 +108,7 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
         TextView contentTextView;
         TextView creationDateTextView;
         Button btnDelete;
+        ImageButton video_post;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -102,6 +118,11 @@ public class PublicacionAdapter extends RecyclerView.Adapter<PublicacionAdapter.
             contentTextView = itemView.findViewById(R.id.contentTextView);
             creationDateTextView = itemView.findViewById(R.id.creationDateTextView);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+            video_post = itemView.findViewById(R.id.ibReproducirVideo2);
         }
+    }
+    public void setData(List<Publicacion> newData) {
+        publicacionesList = newData;
+        notifyDataSetChanged();
     }
 }

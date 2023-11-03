@@ -23,25 +23,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/match_music"
         android:layout_width="200dp"
         android:layout_height="42dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:gravity="top"
         android:text="@string/match_music"
         android:textColor="#59C846"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
-
 
     <ImageButton
         android:id="@+id/btn_mensajes"
@@ -138,7 +138,7 @@
         android:id="@+id/etCriterioDeBusqueda"
         android:layout_width="212dp"
         android:layout_height="43dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="148dp"
         android:hint="Buscar"
         android:background="#FFFFFF"
@@ -148,139 +148,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/svPublicacion"
-        android:layout_width="400dp"
-        android:layout_height="218dp"
-
-        android:layout_margin="8dp"
-        android:layout_marginTop="104dp"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etCriterioDeBusqueda">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-    </ScrollView>
-
     <ImageView
         android:id="@+id/ibPerfilPublicante"
         android:layout_width="48dp"
         android:layout_height="45dp"
         android:layout_margin="8dp"
+        android:layout_marginStart="104dp"
         android:background="@drawable/usuario"
         android:backgroundTint="#59C846"
         android:onClick="perfil"
-        app:layout_constraintStart_toStartOf="@+id/svPublicacion"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
+        app:layout_constraintStart_toEndOf="@+id/match_music"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/datosPublicante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text=""
+        android:text="Nombre de usuario"
         android:textColor="#FBF9F9"
         android:textColorHighlight="#F8F5F5"
         android:textColorLink="#FBFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/svVideoYComentario"
-        app:layout_constraintStart_toEndOf="@id/ibPerfilPublicante"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
-
-    <ScrollView
-        android:id="@+id/svVideoYComentario"
-        android:background="#FFFFFF"
-        android:layout_margin="8dp"
-
-        app:layout_constraintEnd_toEndOf="@+id/svPublicacion"
-        app:layout_constraintStart_toStartOf="@+id/svPublicacion"
-        app:layout_constraintTop_toBottomOf="@+id/ibPerfilPublicante"
-        app:layout_constraintBottom_toBottomOf="@id/svPublicacion"
-         android:layout_height="150dp" android:layout_width="380dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-
-    <TextView
-        android:id="@+id/tvDescripcionVideo"
-        android:layout_width="144dp"
-        android:layout_height="137dp"
-        android:layout_margin="8dp"
-        android:background="#FBF6F6"
-        android:text=" asdf asd as fads fas df fw fe we fwe 23 r fsa df a f 24 w rsd fs dfs df sdf sdf "
-        app:layout_constraintEnd_toEndOf="@+id/svVideoYComentario"
-        app:layout_constraintStart_toEndOf="@+id/ibReproducirVideo"
-        app:layout_constraintTop_toTopOf="@+id/svVideoYComentario"
-        app:layout_constraintBottom_toBottomOf="@id/svVideoYComentario"
+        app:layout_constraintTop_toBottomOf="@+id/match_music"
+        app:layout_constraintRight_toRightOf="parent"
         />
 
-    <ImageButton
-        android:id="@+id/ibEstrellita"
-        android:layout_width="35dp"
-        android:layout_height="34dp"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="418dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="60dp"
-        android:background="@drawable/estrellaicon"
-        android:contentDescription="estrellita"
-        android:importantForAccessibility="no"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
+        android:layout_marginHorizontal="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCriterioDeBusqueda" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="500K"
-        android:textColor="#FBF9F9"
-        android:textColorHighlight="#F8F5F5"
-        android:textColorLink="#FBFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/svVideoYComentario"
-        app:layout_constraintEnd_toEndOf="@+id/svPublicacion"
-        app:layout_constraintStart_toEndOf="@+id/ibEstrellita"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="1,7M"
-        android:textColor="#FBF9F9"
-        android:textColorHighlight="#F8F5F5"
-        android:textColorLink="#FBFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/svVideoYComentario"
-        app:layout_constraintEnd_toStartOf="@+id/ibEstrellita"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
-
-    <ImageButton
-        android:id="@+id/ibpersonasicon"
-        android:layout_width="39dp"
-        android:layout_height="35dp"
-        android:layout_margin="8dp"
-        android:background="@drawable/personasicon"
-        android:contentDescription=""
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toTopOf="@+id/svVideoYComentario"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/svPublicacion" />
-
-    <ImageButton
-        android:id="@+id/ibReproducirVideo"
-        android:layout_width="141dp"
-        android:layout_height="126dp"
-        android:layout_margin="8dp"
-        android:onClick="lauchReproducirvideo"
-        app:layout_constraintBottom_toBottomOf="@id/svVideoYComentario"
-        app:layout_constraintStart_toStartOf="@+id/svVideoYComentario"
-        app:layout_constraintTop_toTopOf="@+id/svVideoYComentario"
-        app:srcCompat="@drawable/reproducirvideo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

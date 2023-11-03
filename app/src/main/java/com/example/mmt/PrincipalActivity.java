@@ -1,6 +1,8 @@
 package com.example.mmt;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +13,13 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PrincipalActivity extends AppCompatActivity{
@@ -24,8 +30,9 @@ public class PrincipalActivity extends AppCompatActivity{
     Button btn_exit;
     FirebaseAuth mAuth;
 
+    private RecyclerView recyclerView;
 
-
+    private PublicacionEnPpalAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,10 @@ public class PrincipalActivity extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
 
         textViewdatosPublicante = findViewById(R.id.datosPublicante);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new PublicacionEnPpalAdapter(new ArrayList<>());
+        recyclerView.setAdapter(adapter);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -69,9 +80,37 @@ public class PrincipalActivity extends AppCompatActivity{
             }
         });
 
-
+        getPublicacionesFromFirebase();
 
     }
+
+    private void getPublicacionesFromFirebase() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference postCollection = db.collection("publicacion");
+
+
+        postCollection
+                .get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<Publicacion> publicacionesList = new ArrayList<>();
+
+                        for (DocumentSnapshot document : task.getResult()) {
+                            Publicacion publicacion = document.toObject(Publicacion.class);
+                            publicacion.setId(document.getId());
+                            if (publicacion != null) {
+                                publicacionesList.add(publicacion);
+                            }
+                        }
+
+                        // Actualiza el adaptador con la lista de publicaciones
+                        adapter.setData(publicacionesList);
+                    } else {
+                        // Maneja errores aquí
+                    }
+                });
+    }
+
+
     public void ir_a_publicar(View view) {
         Intent intent = new Intent(this, PosteoActivity.class);
         startActivity(intent);

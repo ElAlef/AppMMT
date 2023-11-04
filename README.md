@@ -6,11 +6,12 @@ En este proyecto desarrollaremos la aplicación MatchMusic para dispositivos mó
 
 ## Nota aclaratoria
 Este repositorio es un fork del proyecto original (https://github.com/MatchMusicTinder/AppMMT.git) que al cierre del Sprint2 se fragmentó. Acontinuaación se deja constancia de sus integrantes actuales. En la Wiki se adjuntan del proyecto original
-### ENLACE A DOCUMENTO IEEE 830
-### ENLACE AL DISEÑO DE FIGMA
-### NAVEGABILIDAD (Link del Video de la APP Match Music solicitado en el Sprint 1)
-### TESTING (Acceso a los casos de prueba de MMT)
-### accecibilidad (Link al video de accesibilidad de al aplicacion)
+
+ENLACE A DOCUMENTO IEEE 830
+ENLACE AL DISEÑO DE FIGMA
+NAVEGABILIDAD (Link del Video de la APP Match Music solicitado en el Sprint 1)
+TESTING (Acceso a los casos de prueba de MMT)
+ACCESIBILIDAD (Link al video de accesibilidad de al aplicacion)
 
 INTEGRANTES DEL PROYECTO etapa actual:
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/rese"
+tools:context=".MensajeriaPrivada">
+
+<TextView
+    android:id="@+id/tvCabecera"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:text="¡Match Music!\nMensajería\n\n(Por hacer. Desde aquí se podrá dar seguimiento a conversaciones privadas con otros usuarios de la app)"
+    android:textAlignment="center"
+    android:textColor="#ffffff"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.501"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.121"
+    tools:ignore="HardcodedText" />
+
+<ImageView
+    android:id="@+id/ivIconoCabecera"
+    android:layout_width="158dp"
+    android:layout_height="58dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:contentDescription="TODO"
+    app:layout_constraintBottom_toTopOf="@+id/tvCabecera"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.497"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0"
+    app:srcCompat="@drawable/logo_mm"
+    tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,10 +31,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PublicacionSimple extends AppCompatActivity {
+public class PublicacionTienda extends AppCompatActivity {
 
     Button crear_posteo;
-    EditText title,genere,location,content;
+    EditText title,location,content,productPrice;
     LinearLayout linearLayout_image_btn;
     private FirebaseFirestore mfirestore;
     private FirebaseAuth mAuth;
@@ -53,15 +53,15 @@ public class PublicacionSimple extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publicacion_simple);
+        setContentView(R.layout.activity_publicacion_tienda);
         mfirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-        DocumentReference id = mfirestore.collection("publicacion").document();
+        DocumentReference id = mfirestore.collection("clasificado").document();
 
 
         title = findViewById(R.id.title);
-        genere = findViewById(R.id.genere);
+        productPrice = findViewById(R.id.price);
         location = findViewById(R.id.location);
         content = findViewById(R.id.content);
         crear_posteo = findViewById(R.id.btn_publicar);
@@ -74,7 +74,7 @@ public class PublicacionSimple extends AppCompatActivity {
 
                 String tituloPosteo = title.getText().toString().trim();
                 String descrpcionPosteo = content.getText().toString().trim();
-                String genre = genere.getText().toString().trim();
+                String price = productPrice.getText().toString().trim();
                 String locacion = location.getText().toString().trim();
                 String idUser = mAuth.getCurrentUser().getUid();
                 if (tituloPosteo.isEmpty() && descrpcionPosteo.isEmpty()) {
@@ -109,7 +109,7 @@ public class PublicacionSimple extends AppCompatActivity {
     }
     private void subirVideo(Uri video_url) {
 
-        DocumentReference id = mfirestore.collection("publicacion").document();
+        DocumentReference id = mfirestore.collection("clasificado").document();
         String rute_storage_video = storage_path + "" + video + "" + mAuth.getUid() + "" + id.getId() ;
         StorageReference reference = storageReference.child(rute_storage_video);
 
@@ -123,7 +123,7 @@ public class PublicacionSimple extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         String download_uri = uri.toString();
                         crearPosteo(download_uri);
-                        Toast.makeText(PublicacionSimple.this, "Video actualizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PublicacionTienda.this, "Video actualizado", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -131,7 +131,7 @@ public class PublicacionSimple extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PublicacionSimple.this, "Error al cargar foto", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PublicacionTienda.this, "Error al cargar foto", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -139,10 +139,10 @@ public class PublicacionSimple extends AppCompatActivity {
     private void crearPosteo(String video_url) {
         String tituloPosteo = title.getText().toString().trim();
         String descrpcionPosteo = content.getText().toString().trim();
-        String genre = genere.getText().toString().trim();
+        String price = productPrice.getText().toString().trim();
         String locacion = location.getText().toString().trim();
         String idUser = mAuth.getCurrentUser().getUid();
-        DocumentReference id = mfirestore.collection("publicacion").document();
+        DocumentReference id = mfirestore.collection("clasificado").document();
 
 
 
@@ -150,12 +150,12 @@ public class PublicacionSimple extends AppCompatActivity {
         map.put("id_user", idUser);
         map.put("id", id.getId());
         map.put("title", tituloPosteo);
-        map.put("genere", genre);
+        map.put("price", price);
         map.put("location", locacion);
         map.put("content", descrpcionPosteo);
         map.put("video", video_url);
 
-        mfirestore.collection("publicacion").document(id.getId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+        mfirestore.collection("clasificado").document(id.getId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 
@@ -172,79 +172,4 @@ public class PublicacionSimple extends AppCompatActivity {
 
     }
 
-//    Button btn_publicar;
-//    EditText title,genere,location,content;
-//    FirebaseFirestore mFirestore;
-//    FirebaseAuth mAuth;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        mFirestore = FirebaseFirestore.getInstance();
-//        mAuth = FirebaseAuth.getInstance();
-//
-//        title = findViewById(R.id.title);
-//        genere = findViewById(R.id.genere);
-//        location = findViewById(R.id.location);
-//        content = findViewById(R.id.content);
-//        btn_publicar = findViewById(R.id.btn_publicar);
-//
-//        setContentView(R.layout.activity_publicacion_simple);
-//        Log.d(TAG, "PublicacionSimple.java: On Create");
-//
-//    }
-//
-//    public void publicar(View view){
-//
-//        Log.d(TAG, "PublicacionSimple.java: publicar - inicio");
-//
-//
-//        String id = mAuth.getCurrentUser().getUid();
-//        Log.d(TAG, "PublicacionSimple.java: publicar - id user actual: "+id);
-//
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("publisher", id);
-//        map.put("postType", "8KH6adb6tYXAGpJNigjQ");
-//        Log.d("PublicacionSimple.java", "publicar - map: "+map.toString());
-//
-//        title = findViewById(R.id.title);
-//        genere = findViewById(R.id.genere);
-//        location = findViewById(R.id.location);
-//        content = findViewById(R.id.content);
-//
-//        Date currentDate = new Date();
-//
-//        Log.d("PublicacionSimple.java", "publicar - map: "+map.toString());
-//
-//
-//        map.put("title", title.getText().toString().trim());
-//        map.put("creationDate", currentDate);
-//        map.put("genere", genere.getText().toString().trim());
-//        map.put("location", location.getText().toString().trim());
-//        map.put("content", content.getText().toString().trim());
-//
-//
-////    EditText editText = findViewById(R.id.editTextUserInput);
-//
-//        mFirestore.collection("post").add(map)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        finish();
-//                        Toast.makeText(PublicacionSimple.this, "Publicación realizada con éxito", Toast.LENGTH_SHORT).show();
-//
-//                        //Log.d(TAG, "DocumentSnapshot successfully written with ID: " + documentReference.getId());
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "PublicacionSimple.java: Error al registrar la publicación", e);
-//                        Toast.makeText(PublicacionSimple.this, "Error al registrar la publicación", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//    }
 }

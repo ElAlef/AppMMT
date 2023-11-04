@@ -2,10 +2,10 @@ package com.example.mmt;
 
 import com.google.firebase.Timestamp;
 
-public class Publicacion {
+public class Clasificado {
 
     private String content;
-    private String genre;
+    private String price;
     private String id;
     private String id_user;
 //    private Timestamp creationDate;
@@ -15,12 +15,12 @@ public class Publicacion {
     private String video;
 
 
-    public Publicacion() {
+    public Clasificado() {
         //nothing
     }
-    public Publicacion(String content, String genre, String id, String id_user, String location, String title, String video) {
+    public Clasificado(String content, String price, String id, String id_user, String location, String title, String video) {
         this.content = content;
-        this.genre = genre;
+        this.price = price;
         this.id = id;
         this.id_user = id_user;
         this.location = location;
@@ -36,8 +36,8 @@ public class Publicacion {
 //        return creationDate;
 //    }
 
-    public String getGenre() {
-        return genre;
+    public String getPrice() {
+        return price;
     }
 
     public String getLocation() {
@@ -52,7 +52,7 @@ public class Publicacion {
     }
 
     public String getId() { return id;}
-    public Publicacion setId(String id) {
+    public Clasificado setId(String id) {
         this.id = id;
         return this;
     }

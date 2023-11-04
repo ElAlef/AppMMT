@@ -15,6 +15,12 @@
         android:theme="@style/Theme.MMT"
         tools:targetApi="31">
         <activity
+            android:name=".PublicacionTiendaLista"
+            android:exported="false" />
+        <activity
+            android:name=".PublicacionTienda"
+            android:exported="false" />
+        <activity
             android:name=".MensajeriaPrivada"
             android:exported="false" />
         <activity

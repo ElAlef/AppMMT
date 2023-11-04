@@ -89,6 +89,7 @@
         android:contentDescription="tienda"
         android:foreground="@drawable/tiendaicon"
         android:importantForAccessibility="no"
+        android:onClick="launchGestionTienda"
         app:layout_constraintStart_toEndOf="@+id/btnMisPostsConVideo"
         app:layout_constraintTop_toTopOf="parent" />
 

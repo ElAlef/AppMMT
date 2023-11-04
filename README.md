@@ -1,19 +1,19 @@
-## Match Music Tinder
+# Match Music Tinder
 
-### Proyecto Integrador ISPC de Aplicaciones Móviles, Ciberseguridad y Testeo de Software
+## Proyecto Integrador ISPC de Aplicaciones Móviles, Ciberseguridad y Testeo de Software
 
 En este proyecto desarrollaremos la aplicación MatchMusic para dispositivos móviles, con el lenguaje Java.
 
 ## Nota aclaratoria
 Este repositorio es un fork del proyecto original (https://github.com/MatchMusicTinder/AppMMT.git) que al cierre del Sprint2 se fragmentó. Acontinuaación se deja constancia de sus integrantes actuales. En la Wiki se adjuntan del proyecto original
 
-ENLACE A DOCUMENTO IEEE 830
-ENLACE AL DISEÑO DE FIGMA
-NAVEGABILIDAD (Link del Video de la APP Match Music solicitado en el Sprint 1)
-TESTING (Acceso a los casos de prueba de MMT)
-ACCESIBILIDAD (Link al video de accesibilidad de al aplicacion)
+- ENLACE A DOCUMENTO IEEE 830
+- ENLACE AL DISEÑO DE FIGMA
+- NAVEGABILIDAD (Link del Video de la APP Match Music solicitado en el Sprint 1)
+- TESTING (Acceso a los casos de prueba de MMT)
+- ACCESIBILIDAD (Link al video de accesibilidad de al aplicacion)
 
-INTEGRANTES DEL PROYECTO etapa actual:
+### INTEGRANTES DEL PROYECTO etapa actual:
 
 1) OLIMA SEBASTIAN,
 2) NIEVAS GUARDIA VERONICA,
@@ -21,7 +21,7 @@ INTEGRANTES DEL PROYECTO etapa actual:
 4) BENITEZ ALEJANDRO,
 
 
-INTEGRANTES DEL PROYECTO etapa anterior (segunda etapa):
+### INTEGRANTES DEL PROYECTO etapa anterior (segunda etapa):
 
 1) DIAZ OSVALDO,
 2) BENITEZ ALEJANDRO,
@@ -29,7 +29,7 @@ INTEGRANTES DEL PROYECTO etapa anterior (segunda etapa):
 4) NIEVAS GUARDIA VERONICA,
 5) PERALTA MARIA SOLEDAD,
 
-INTEGRANTES DEL PROYECTO etapa anterior (primera etapa):
+### INTEGRANTES DEL PROYECTO etapa anterior (primera etapa):
 
 1) DIAZ OSVALDO,
 2) GIANNICO VALENTINO,

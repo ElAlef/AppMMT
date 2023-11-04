@@ -138,4 +138,9 @@ public class PrincipalActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    public void launchGestionMensajeria(View view) {
+        Intent intent = new Intent(this, MensajeriaPrivada.class);
+        startActivity(intent);
+    }
+
 }

@@ -9,21 +9,6 @@
     tools:context=".PrincipalActivity">
 
 
-    <ImageButton
-        android:id="@+id/btn_casa"
-        android:layout_width="43dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="355dp"
-        android:background="@drawable/casaicon"
-        android:contentDescription="CASA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <TextView
         android:id="@+id/match_music"
         android:layout_width="200dp"
@@ -44,61 +29,102 @@
         />
 
     <ImageButton
-        android:id="@+id/btn_mensajes"
-        android:layout_width="39dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="296dp"
-        android:background="@drawable/mensaje"
-        android:contentDescription="MENSAJE"
+        android:id="@+id/fondoBotonera"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="81dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:contentDescription=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <ImageButton
+        android:id="@+id/btn_casa"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:foreground="@drawable/casaicon"
+        android:contentDescription="CASA"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+    <ImageButton
+        android:id="@+id/btnMisPostsConVideo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:foreground="@drawable/playicon"
+        android:contentDescription="Mis Posts"
         android:importantForAccessibility="no"
         android:onClick="launchPublicacionSimple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toEndOf="@+id/btn_casa"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageButton
-        android:id="@+id/mp3"
-        android:layout_width="36dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="88dp"
-        android:background="@drawable/mp3icon"
+        android:id="@+id/btnClasificados"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:contentDescription="tienda"
+        android:foreground="@drawable/tiendaicon"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toEndOf="@+id/btnMisPostsConVideo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnMensajeria"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:foreground="@drawable/mensaje"
+        android:contentDescription="MENSAJE"
+        android:importantForAccessibility="no"
+        android:onClick="launchGestionMensajeria"
+        app:layout_constraintLeft_toRightOf="@+id/btnClasificados"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnMisPostsConAudio"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:foreground="@drawable/mp3icon"
         android:contentDescription="MP3"
         android:importantForAccessibility="no"
         android:onClick="launchPublicacionAudio"
-        app:layout_constraintStart_toEndOf="@+id/btn_mensajes"
+        app:layout_constraintStart_toEndOf="@+id/btnMensajeria"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/ibMisVideos"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="88dp"
-        android:background="@drawable/playicon"
-        android:contentDescription="MP3"
-        android:importantForAccessibility="no"
-        app:layout_constraintStart_toEndOf="@+id/mp3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-
-    <ImageButton
-        android:id="@+id/btn_tienda"
-        android:layout_width="38dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="88dp"
-        android:background="@drawable/tiendaicon"
-        android:contentDescription="tienda"
-        android:importantForAccessibility="no"
-        app:layout_constraintStart_toEndOf="@+id/ibMisVideos"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="NotSibling" />
 
     <Button
         android:id="@+id/publicar"
@@ -124,8 +150,8 @@
         android:layout_marginTop="649dp"
         android:layout_marginBottom="34dp"
         android:backgroundTint="@color/boton"
-        android:textColor="#000000"
         android:text="cerrar sesión"
+        android:textColor="#000000"
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,9 +166,9 @@
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="148dp"
-        android:hint="Buscar"
         android:background="#FFFFFF"
         android:ems="10"
+        android:hint="Buscar"
         android:inputType="text"
         android:tooltipText="buscar...."
         app:layout_constraintStart_toStartOf="parent"
@@ -169,17 +195,16 @@
         android:textColor="#FBF9F9"
         android:textColorHighlight="#F8F5F5"
         android:textColorLink="#FBFAFA"
-        app:layout_constraintTop_toBottomOf="@+id/match_music"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/match_music" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="418dp"
-        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="2dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etCriterioDeBusqueda" />

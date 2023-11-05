@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="¡Match Music!\nPublicación de Audio"
+        android:text="¡Match Music!\nMi Musica\n\n(Por hacer. Aquí se podrán gestionar pistas de audio publicadas, publicar nuevas, actualizarlas o eliminarlas)"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="30sp"
